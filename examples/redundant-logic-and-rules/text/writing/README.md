@@ -16,4 +16,4 @@ The finding depends on repeating an already explicit scope in a short passage, n
 
 The minimal deletion preserves the task, its scope, and both overall and per-category accuracy reporting. The finding makes no claim that a user previously rejected image generation or chatbot development.
 
-See the [instruction-text counterpart](../README.md) and [Code counterpart](../../README.md). The six dimensions, repository-only inputs, and report fields are unchanged.
+See the [instruction-text counterpart](../README.md) and [Code counterpart](../../README.md). This case uses the existing Redundant Logic and Rules dimension, repository-only inputs, and standard report fields. See the [irrelevant-negative-contrast example](../unnecessary-contrasts/README.md) for alternatives introduced and rejected without contributing to the passage, even when they have not appeared earlier.

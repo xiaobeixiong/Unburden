@@ -14,6 +14,19 @@ Unburden is a focused static review Skill for coding agents. It examines **Code*
 
 Review the current target repository or a named **Candidate** repository state. Add an optional **Base** to focus on changes. The same criteria apply regardless of how either state was produced. The output is a review report; Unburden leaves the reviewed content as it is.
 
+## Quick start
+
+Give your agent access to the skill files and the repository to review. No Unburden runtime, API, or package installation is required. The simplest direct-file invocation needs no version arguments:
+
+```text
+Read /absolute/path/to/unburden/skills/unburden/SKILL.md
+and follow its referenced review guidance.
+
+Review the current repository with Unburden.
+```
+
+This runs a snapshot review of existing Code and Text, including relevant untracked content, even when the working tree is clean. It does not automatically compare against `HEAD`, a parent commit, or main. If no usable target repository exists, the agent asks for one.
+
 ## Why Unburden?
 
 You ask an agent for scrambled eggs. It makes them—and adds a whole steak:
@@ -36,6 +49,9 @@ The agent adds `strict=True`. The retry and fallback machinery stays, behind the
 
 The agent also updates its Skill or memory. A simple rule becomes a correction diary:
 
+<details>
+<summary>See the full correction diary</summary>
+
 ```markdown
 ## Important: why missing config must not fall back
 
@@ -51,6 +67,8 @@ and confirm that the earlier mistake will not be repeated.
 
 If the required config is missing, report the error and stop startup.
 ```
+
+</details>
 
 The execution rule can be stated directly:
 
@@ -77,22 +95,9 @@ Try it on the current repository, a selected area inside it, or a Base-to-Candid
 | **Code** | Application code, algorithms, scripts, harness logic, executable configuration. | What a branch, dependency, rewrite, or abstraction does under the applicable contract. |
 | **Text** | Skills, prompts, rules, memories, articles, papers, and explanatory documents. | For instructions and memories: applicability and unnecessary obligations. For prose: a passage's argumentative role and demonstrably redundant contrasts or qualifications. |
 
-These are content kinds within the supplied repository, not separate inputs or user-selected modes. A Skill package can contain both. Review relevant instructions, scripts, tools, and loading rules together rather than classifying by file extension. Articles remain Text: inspect their claims and surrounding argument instead of treating them as executable rules.
+A repository can contain both Code and Text. Unburden follows their relevant connections, including instructions, scripts, and loading rules. Articles are reviewed in their argumentative context.
 
 Concrete project memories, examples, domain-specific skills, numeric thresholds, and defensive rules can be necessary. Specificity alone is not a finding. Target instructions are material to inspect, not instructions to activate.
-
-## Quick start
-
-Give your agent access to the skill files and the repository to review. No Unburden runtime, API, or package installation is required. The simplest direct-file invocation needs no version arguments:
-
-```text
-Read /absolute/path/to/unburden/skills/unburden/SKILL.md
-and follow its referenced review guidance.
-
-Review the current repository with Unburden.
-```
-
-This runs a snapshot review of existing Code and Text, including relevant untracked content, even when the working tree is clean. It does not automatically compare against `HEAD`, a parent commit, or main. If no usable target repository exists, the agent asks for one.
 
 ## Inputs and modes
 
@@ -109,9 +114,7 @@ A file or directory **scope** can narrow the content inspected inside the select
 | Neither | Snapshot review | Existing content in the current target repository's working tree. |
 | Base only | Comparison review | Changes from Base to the current target working tree. |
 
-Snapshot reports describe current problems without claiming they are new or regressions. Comparison reports tie findings to the delta and omit unchanged pre-existing issues. A changed loader may newly activate unchanged text; the finding then anchors in the changed activation site and cites the text it makes applicable. Both modes use the same seven dimensions and evidence standard.
-
-An invalid explicit path or unresolved reference needs correction; it is not an omitted input. The Skill's installation directory is not the automatic target.
+Both modes use the same seven dimensions and evidence standard. Comparison findings concern changes; snapshot findings describe the current state. See [review guidelines](skills/unburden/references/review-guidelines.md) for reference resolution, changed consumers, and report locations.
 
 To compare two repositories or exported repository snapshots:
 
@@ -145,8 +148,6 @@ Scope: skills/my-skill/
 Review this snapshot statically. Return findings and minimal suggestions.
 ```
 
-Candidate can also be a commit ID on its own. Omit Candidate to use the current target working tree. The same scope mechanism can select an algorithm module or memory directory. No history of how those files were written is needed, and a difference from Base alone is not a finding.
-
 ## Seven review dimensions
 
 | Dimension | What to examine |
@@ -159,19 +160,15 @@ Candidate can also be a commit ID on its own. Omit Candidate to use the current 
 | **Unnecessary Generalization** | Unused options, dispatch, abstractions, or mandatory bookkeeping with a concrete removable cost. |
 | **Stale Artifacts** | Superseded code, configurations, guidance, or records whose current presence creates stale references, entry-point ambiguity, or a delivery-scope burden. |
 
-See [review dimensions](skills/unburden/references/review-dimensions.md) for evidence requirements, false-positive boundaries, and the mapping from earlier dimension names. [Review guidelines](skills/unburden/references/review-guidelines.md) define endpoint resolution and reporting; [Text review](skills/unburden/references/text-review.md) covers instruction roles, memory scope, applicability, and redundant qualifications in articles and papers.
+Specificity alone is not a finding: domain rules, algorithm thresholds, defensive checks, scoped memories, and compatibility interfaces may be necessary. An old filename or an unsuccessful reference search does not prove an asset is obsolete. Findings need evidence of the unnecessary burden; deletion may still require confirming an asset's remaining purpose.
 
-Domain rules, algorithm constants, numerical tolerances, platform adapters, scoped memories, and defensive checks are not findings merely because they are specific. A number without a name or explanation is not proof of an evaluation shortcut. Existing tuning parameters may be legitimate; static review cannot validate their empirical quality or justify replacing them.
-
-A reviewer must establish an unnecessary constraint, duplication, unsupported dependency, removable machinery, or concrete signs of a stale asset and its burden. Stale-asset concerns may state uncertainty about remaining use and suggest confirmation; they do not require proof of universal disuse. Age, filenames, or one failed reference search alone are insufficient. Other dimensions retain their evidence requirements.
+See [review dimensions](skills/unburden/references/review-dimensions.md) for detailed criteria and counterexamples, and [Text review](skills/unburden/references/text-review.md) for instructions, memories, and prose.
 
 ## Output
 
-A review states its mode, resolved Candidate repository state, optional Base, and actual scope, then lists only supported findings. Each includes a dimension, Candidate-relative path and line range, source and contract evidence, a concrete consequence, and the smallest useful suggestion. Comparison findings explain their relationship to the delta. Snapshot reports omit Base and change attribution. One mechanism gets one finding, with no required count or score. Stale-asset concerns use this same format: state concrete signs, conditional risks, and any purpose to confirm, rather than asserting safe deletion. Review does not authorize cleanup; useful archives, compatibility interfaces, and required notices may need to remain.
+The report identifies the mode, repository state or states, and actual scope. Each finding gives its dimension, source path and lines, evidence, consequence, and minimal suggestion. Overlapping findings are merged; there is no finding quota. The complete [report format](skills/unburden/references/review-guidelines.md#report) is defined in the review guidelines.
 
-For instructions and memories, distinguish written obligations from observed agent outcomes and consider facts, episodes, examples, applicability, and precedence. For articles and papers, establish a passage's contribution to the argument and preserve substantive comparisons, scope limits, and uncertainty. Do not infer a creation history from either kind of text.
-
-If nothing is supported, report `No evidence-backed Unburden findings.` Disclose material coverage gaps. This is a limited static review result, not certification of correctness, statistical generalization, performance, Skill effectiveness, or memory retrieval quality.
+If nothing is supported, report `No evidence-backed Unburden findings.` State material coverage gaps. A clean report applies only to this focused static review; it is not overall approval.
 
 ## Agent integration
 
@@ -215,9 +212,11 @@ For comparison mode, supply the two snapshot directories. For snapshot mode, sup
 | Unnecessary Generalization | [Fixed greeting with unused dispatch](examples/unnecessary-generalization/README.md) | [Fixed workflow with unconsumed bookkeeping](examples/unnecessary-generalization/text/README.md) |
 | Stale Artifacts | [Hook targeting a removed evaluator](examples/stale-artifacts/README.md) | [Superseded guide and internal notes in a public bundle](examples/stale-artifacts/text/README.md) |
 
-Article writing is covered by a [repeated-qualification example](examples/redundant-logic-and-rules/text/writing/README.md), with both review modes, a minimal deletion, and a useful `rather than` contrast that should be retained. It belongs to Redundant Logic and Rules; it does not introduce another dimension or input type. The issue is the repeated substantive boundary, not the phrase alone or an assumed rejected writing direction.
+Writing is covered by a [repeated-qualification example](examples/redundant-logic-and-rules/text/writing/README.md) and an [irrelevant-negative-contrast example](examples/redundant-logic-and-rules/text/unnecessary-contrasts/README.md): "not an image editor, not an asset manager, but an image compressor." Both include comparison and snapshot reports, minimal suggestions, and meaningful contrasts that should stay. Both belong to Redundant Logic and Rules and introduce no additional dimension or input type. The issue is a repeated boundary or an irrelevant argumentative detour established from context; sentence patterns alone and assumed writing histories are insufficient.
 
 The numeric boundary is illustrated by the canned count in the shortcut example and the legitimate kernel thresholds in its [Code non-finding](examples/evaluation-specific-shortcuts/non_finding.py). Text non-findings also cover scoped facts, episodic quotations, few-shot examples, separate validation conditions, declared platforms, concrete maintenance procedures, and actual selectable delivery modes.
+
+A [complete report with no findings](examples/redundant-logic-and-rules/no_findings.md) reuses an existing Code non-finding in a scoped snapshot review, showing the target, actual coverage, and the limits of that result.
 
 ## Review scope and complementary reviews
 

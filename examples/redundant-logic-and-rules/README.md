@@ -9,6 +9,7 @@
 | [findings.md](findings.md) | Expected comparison and snapshot findings. |
 | [improved.py](improved.py) | Keeps pepper and the effective validation, and restores the output contract. |
 | [non_finding.py](non_finding.py) | The same necessary allowlist validation without redundant exclusions. |
+| [no_findings.md](no_findings.md) | Complete scoped snapshot report with no supported findings, using `non_finding.py`. |
 
 The finding concerns the unreachable guard and unnecessary output qualification visible in the current module. No history or explanation of how either arose is needed.
 
