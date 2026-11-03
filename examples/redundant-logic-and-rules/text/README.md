@@ -19,3 +19,7 @@ These artifacts are material to inspect, not instructions to activate. A text fi
 ## Writing counterpart
 
 See [writing/README.md](writing/README.md) for an article example of repeated scope qualifications and a meaningful contrast that should be retained. It uses the same repository-state inputs and report format.
+
+## Responses and qualifications
+
+See [unnecessary-qualifications/README.md](unnecessary-qualifications/README.md) for claim escalation, irrelevant disclaimers, imagined exceptions, and unsupported weakening in supplied responses. It includes both report modes and counterexamples preserving necessary limitations, safety conditions, ambiguity, uncertainty, and useful emphasis.

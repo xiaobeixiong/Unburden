@@ -1,6 +1,6 @@
 ---
 name: unburden
-description: Review repository code and text, including agent instructions, memories, articles, and papers, for unnecessary specialization, redundancy, overengineering, and stale artifacts. Review a Candidate or the current repository, optionally against a Base. Return evidence-backed findings and minimal suggestions without edits or execution experiments.
+description: Review repository code and text, including agent instructions, memories, articles, papers, and responses, for unnecessary specialization, redundancy, overengineering, and stale artifacts. Review a Candidate or the current repository, optionally against a Base. Return evidence-backed findings and minimal suggestions without edits or execution experiments.
 ---
 
 # Unburden
@@ -21,9 +21,9 @@ Establish applicable contracts from the supplied repositories. No separate task 
 ## Review
 
 1. Resolve the repositories and revisions; state the mode and scope. Follow [review-guidelines.md](references/review-guidelines.md) for endpoint inspection, evidence, and reporting.
-2. Identify the relevant **Code** and **Text** content. Code includes programs, scripts, and executable configuration; Text includes agent skills, prompts, rules, memories, articles, papers, and explanatory documents. These are content kinds, not user-selected modes. Mixed packages need both lenses and their relevant connections, rather than classification by extension alone.
+2. Identify the relevant **Code** and **Text** content. Code includes programs, scripts, and executable configuration; Text includes agent skills, prompts, rules, memories, articles, papers, explanatory documents, responses, and dialogue excerpts. These are content kinds, not user-selected modes. Mixed packages need both lenses and their relevant connections, rather than classification by extension alone.
 3. Read [review-dimensions.md](references/review-dimensions.md). Consider all seven dimensions: **Unnecessary Special Cases**, **Redundant Logic and Rules**, **Evaluation-Specific Shortcuts**, **Environment Coupling**, **Implementation Coupling**, **Unnecessary Generalization**, and **Stale Artifacts**. They are lenses, not finding quotas; evaluation-specific checks apply only when supported by repository evidence.
-4. When reviewing Text, read [text-review.md](references/text-review.md). For instructions and memories, distinguish operative rules from facts, episodes, examples, and quotations, and establish applicability. For articles and papers, examine the passage's role in the argument and retain meaningful comparisons, scope limits, and caveats. Apply only supported dimensions; prose need not have executable instructions or evaluation context.
+4. When reviewing Text, read [text-review.md](references/text-review.md). For instructions and memories, distinguish operative rules from facts, episodes, examples, and quotations, and establish applicability. For prose and responses, examine the passage's role against its actual claims or requests and retain meaningful comparisons, scope limits, and caveats. Apply only supported dimensions; prose need not have executable instructions or evaluation context.
 5. Follow each plausible issue to its contract, caller, consumer, applicable rule, or argumentative context. Establish the mechanism and consequence and check the strongest reasonable explanation for keeping it. For Stale Artifacts, trace relevant entry points, consumers, and delivery boundaries; report grounded concerns with explicit uncertainty rather than claiming universal disuse. Omit unsupported leads.
 6. Return findings ordered by consequence, anchored in tight Candidate line ranges. In comparison mode, tie each to the delta. Propose the smallest useful change preserving the applicable contract. Merge overlapping findings about the same mechanism.
 

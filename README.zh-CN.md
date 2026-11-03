@@ -93,7 +93,7 @@ AI 论文写作里也可能出现同样的 burden。假设正文已经说明任�
 | 内容     | 示例                                                | 审查重点                                                                                             |
 | -------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | **Code** | 应用代码、算法、脚本、harness 逻辑、可执行配置。    | 分支、依赖、数据改写或抽象在适用契约下的作用。                                                       |
-| **Text** | Skill、prompt、规则、Memory、文章、论文及说明文档。 | 指令与记忆：适用范围及不必要的执行义务；论述性文本：句子在论证中的作用，以及可证明重复的对比或限定。 |
+| **Text** | Skill、prompt、规则、Memory、文章、论文、说明文档、回答及对话片段。 | 指令与记忆：适用范围及不必要的执行义务；论述与回答：句子对实际主张或请求的作用，以及上下文可证明不必要的对比或限定。 |
 
 同一仓库可以同时包含 Code 和 Text。Unburden 会关联检查相关指令、脚本和加载规则；文章则依据其主张和上下文论证审查。
 
@@ -198,7 +198,7 @@ cp -R skills/unburden /absolute/path/to/target-project/.agents/skills/unburden
 
 七个维度均有 Code 案例和 `text/` 对应案例，包括失效引用与超出交付范围的记录。目录名和以下表格使用当前维度名称。
 
-每组示例包含 **`base/` 和 `candidate/` 仓库快照**、预期 `findings.md`、更合理的 `improved.py` 或 `improved.md`、相似但不应误报的 `non_finding.py` 或 `non_finding.md`，以及说明契约的 README。Code 快照包含 `example.py`；指令与记忆快照包含 `SKILL.md` 或 `MEMORY.md`；写作示例使用 `article.md`。
+每组示例包含 **`base/` 和 `candidate/` 仓库快照**、预期 `findings.md`、更合理的 `improved.py` 或 `improved.md`、相似但不应误报的 `non_finding.py` 或 `non_finding.md`，以及说明契约的 README。Code 快照包含 `example.py`；指令与记忆快照包含 `SKILL.md` 或 `MEMORY.md`；写作示例使用 `article.md`；回答片段使用 `responses.md`。
 
 比较模式提供两个快照目录，快照模式只提供 `candidate/`，预期报告分别展示两种模式。输入快照包含自己的契约；预期报告和替代版本是输入之外的解释性材料。这些是静态源码示例，不是测试或 benchmark。
 
@@ -213,6 +213,8 @@ cp -R skills/unburden /absolute/path/to/target-project/.agents/skills/unburden
 | 过时资产 | [指向已删除评测器的 hook](examples/stale-artifacts/README.md) | [发布包中的失效指南与内部记录](examples/stale-artifacts/text/README.md) |
 
 写作案例包括[重复限定示例](examples/redundant-logic-and-rules/text/writing/README.md)和[无关否定对比示例](examples/redundant-logic-and-rules/text/unnecessary-contrasts/README.md)：介绍图片压缩工具时，先说“不是图片编辑器，不是素材管理平台，而是图片压缩工具”。两组均包含比较与快照报告、最小建议，以及应当保留的有意义对比。它们归入“冗余逻辑与规则”，不另增维度或输入类型。依据是上下文中可证明重复或无关的论述，不按句式判错，也不推测写作历史。
+
+[回答中的不必要限定示例](examples/redundant-logic-and-rules/text/unnecessary-qualifications/README.md)覆盖无端升级主张、无关免责声明、臆造例外和无依据降格表述，仍归入“冗余逻辑与规则”。仓库快照提供请求及上下文，不要求额外的对话历史；反例保留必要限定和有用的强调。“本文不声称”“值得注意的是”“需要指出的是”等短语本身不构成问题。
 
 数字边界由捷径案例中的预置计数，以及 [Code 非问题案例](examples/evaluation-specific-shortcuts/non_finding.py)中的合理内核阈值共同说明。Text 非问题案例还覆盖限定范围的事实、事件引用、few-shot 示例、不同条件的验证、明确的平台契约、具体实现的维护流程，以及确有用途的可选交付模式。
 

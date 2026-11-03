@@ -1,6 +1,6 @@
 # Reviewing text
 
-Use the instruction and memory checks below for skills, prompts, rules, and memories, and the argumentative-prose section for articles, papers, and explanatory documents. The shared review scope, evidence requirements, and report format are defined in [review-guidelines.md](review-guidelines.md).
+Use the instruction and memory checks below for skills, prompts, rules, and memories, and the prose and qualification checks for articles, papers, explanatory documents, responses, and dialogue excerpts in the repository. The shared review scope, evidence requirements, and report format are defined in [review-guidelines.md](review-guidelines.md).
 
 ## Instructions and memory: role and applicability
 
@@ -46,9 +46,24 @@ Also inspect self-introduced negative contrasts: `not X, not Y, but Z` or `不�
 
 Treat phrases such as `rather than`, `not X but Y`, and `we do not claim` as leads, not triggers. Preserve comparisons that distinguish actual methods or baselines, define what is measured, explain a tradeoff, qualify evidence, or delimit a claim. Repeated caveats in independently read sections can serve different audiences. If a contrast's role remains uncertain, omit the finding.
 
-Describe the current text as repeating an already stated boundary or introducing an unsupported contrast only when the context establishes that mechanism. Never claim that it records a rejected user request, a reviewer exchange, or an earlier draft. Neither mode requires those histories. Do not turn a general factual error or disagreement with a paper's thesis into an Unburden finding.
+Describe the current text as repeating an already stated boundary or introducing an unsupported contrast only when the context establishes that mechanism. Do not infer a rejected user request, reviewer exchange, or earlier draft from the prose. Explicitly supplied dialogue may be inspected as text; neither mode requires its production history. Do not turn a general factual error or disagreement with a paper's thesis into an Unburden finding.
 
 The consequence is the specific duplicated qualification or unnecessary argumentative detour visible in the text. Do not assert measured readability gains, reader confusion, or effects on publication outcomes. Suggestions must preserve definitions, methods, citations, limitations, uncertainty, and substantive scope.
+
+## Unnecessary qualifications in prose and responses
+
+Under **Redundant Logic and Rules**, also inspect qualifications whose target is introduced by the response itself. Establish the actual claim, request, or communicative purpose from the supplied text, including speaker roles and any explicit context. A casual observation or compliment need not be treated as a scientific generalization.
+
+- **Unrequested claim escalation:** A response turns a local observation into a universal, long-term, or causal claim, then rejects that stronger claim. Sharing today's sunshine does not itself assert a climate trend.
+- **Irrelevant disclaimers:** A passage disclaims a capability or conclusion beyond the established purpose, without adding a useful boundary. A CSV conversion description need not disclaim solving every data-processing problem.
+- **Unsupported condition expansion:** A response introduces unrelated exceptions or alternative interpretations and makes their exclusion a prerequisite for answering an otherwise sufficiently specified request. Imagined theft or spoilage need not block an ordinary apple-counting puzzle.
+- **Unsupported weakening:** A response replaces a context-supported description with a vaguer one without new contrary evidence. Removing an unsupported war inference does not require downgrading a supplied catalog's identification of a sword. This concerns fidelity to the supplied context, not independent verification of that identification.
+
+For a finding, cite the original claim or request and the exact added qualification; identify the stronger claim, exception, or proof obligation it introduces. Explain why it contributes no relevant answer, decision condition, scope boundary, or uncertainty in that context. Specify the removable clause or smallest replacement that preserves the supported answer and necessary caveats. A disclaimer can be true and still be inapplicable to the actual request. If the role of the qualification cannot be established, omit the finding rather than inventing a user purpose or asking for a conversation history.
+
+Phrases such as `this paper does not claim`, `this does not imply`, `it is worth noting`, `it must be pointed out`, `本文不声称`, `值得注意的是`, and `需要指出的是` are search leads, not finding criteria. The same applies to formulaic balance, future-work statements, repeated modesty, and explanations of why a passage was written: establish a specific irrelevant or duplicate qualification. An introductory phrase alone, a preference for direct wording, or a shorter rewrite is ordinary editing and insufficient for a finding.
+
+Preserve limitations that bound an actual inference, warnings tied to a concrete relevant risk, assumptions resolving genuine ambiguity, corrections supported by new evidence, and emphasis introducing an actionable boundary. A question about long-term improvement can warrant a caveat that a casual report does not. Preserve useful uncertainty even when the user prefers certainty; do not impose a cheerful tone, unconditional agreement, or a blanket ban on disclaimers.
 
 ## Minimal suggestions and review isolation
 

@@ -93,7 +93,7 @@ Try it on the current repository, a selected area inside it, or a Base-to-Candid
 | Content | Examples | Review focus |
 | --- | --- | --- |
 | **Code** | Application code, algorithms, scripts, harness logic, executable configuration. | What a branch, dependency, rewrite, or abstraction does under the applicable contract. |
-| **Text** | Skills, prompts, rules, memories, articles, papers, and explanatory documents. | For instructions and memories: applicability and unnecessary obligations. For prose: a passage's argumentative role and demonstrably redundant contrasts or qualifications. |
+| **Text** | Skills, prompts, rules, memories, articles, papers, explanatory documents, responses, and dialogue excerpts. | For instructions and memories: applicability and unnecessary obligations. For prose and responses: a passage's role against the actual claims or requests, including unnecessary contrasts or qualifications established from context. |
 
 A repository can contain both Code and Text. Unburden follows their relevant connections, including instructions, scripts, and loading rules. Articles are reviewed in their argumentative context.
 
@@ -198,7 +198,7 @@ For the other agents, use the corresponding parent directory from the table. Ins
 
 Each of the seven dimensions has a Code example and a `text/` counterpart, including stale references and out-of-scope records. Directory names and the labels below use the current dimension names.
 
-Each example has **`base/` and `candidate/` repository snapshots**, expected `findings.md`, a smaller `improved.py` or `improved.md`, a similar `non_finding.py` or `non_finding.md`, and a contract README. Code snapshots contain `example.py`; instruction and memory snapshots contain `SKILL.md` or `MEMORY.md`. The writing example uses `article.md`.
+Each example has **`base/` and `candidate/` repository snapshots**, expected `findings.md`, a smaller `improved.py` or `improved.md`, a similar `non_finding.py` or `non_finding.md`, and a contract README. Code snapshots contain `example.py`; instruction and memory snapshots contain `SKILL.md` or `MEMORY.md`. Writing examples use `article.md`; response excerpts use `responses.md`.
 
 For comparison mode, supply the two snapshot directories. For snapshot mode, supply only `candidate/`. Both modes are illustrated in the expected findings. The snapshots contain their own contracts; expected reports and alternatives are explanatory material outside the inputs. These are static source illustrations, not tests or benchmarks.
 
@@ -213,6 +213,8 @@ For comparison mode, supply the two snapshot directories. For snapshot mode, sup
 | Stale Artifacts | [Hook targeting a removed evaluator](examples/stale-artifacts/README.md) | [Superseded guide and internal notes in a public bundle](examples/stale-artifacts/text/README.md) |
 
 Writing is covered by a [repeated-qualification example](examples/redundant-logic-and-rules/text/writing/README.md) and an [irrelevant-negative-contrast example](examples/redundant-logic-and-rules/text/unnecessary-contrasts/README.md): "not an image editor, not an asset manager, but an image compressor." Both include comparison and snapshot reports, minimal suggestions, and meaningful contrasts that should stay. Both belong to Redundant Logic and Rules and introduce no additional dimension or input type. The issue is a repeated boundary or an irrelevant argumentative detour established from context; sentence patterns alone and assumed writing histories are insufficient.
+
+A [response-qualification example](examples/redundant-logic-and-rules/text/unnecessary-qualifications/README.md) covers unrequested claim escalation, irrelevant disclaimers, imagined exceptions, and unsupported weakening under Redundant Logic and Rules. Its repository snapshots supply the requests and context; no additional conversation history is required. Counterexamples preserve useful limitations and emphasis. Phrases such as "this paper does not claim" and "it is worth noting" alone are insufficient for a finding.
 
 The numeric boundary is illustrated by the canned count in the shortcut example and the legitimate kernel thresholds in its [Code non-finding](examples/evaluation-specific-shortcuts/non_finding.py). Text non-findings also cover scoped facts, episodic quotations, few-shot examples, separate validation conditions, declared platforms, concrete maintenance procedures, and actual selectable delivery modes.
 
